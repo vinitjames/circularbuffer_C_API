@@ -1,5 +1,6 @@
 #include "circular_buffer.h"
 #include <stdlib.h>
+
 struct CircularBuffer {
 	uint8_t* buffer;
 	size_t head;
@@ -12,19 +13,19 @@ CircularBufferHandle CircularBufInit(uint8_t* buffer, size_t size){
 	if ((buffer == NULL)||(size == 0)){
 		return NULL;
 	}
-	
+	printf("inside init function size %d%d\n",size, sizeof(CircularBuffer));
 	CircularBufferHandle c_buf = (CircularBuffer*) malloc(sizeof(CircularBuffer));
 
 	if (c_buf == NULL){
 		return NULL;
 	}
-
+	printf("inside init function size %d\n",sizeof(CircularBuffer));
 	c_buf->buffer = buffer;
 	CircularBufReset(c_buf);
-	c_buf->full = false;
+	c_buf->max = size;
 
 	return c_buf;
-};
+}
 
 C_Buffer_Status CircularBufReset(CircularBufferHandle c_buf){
 	if(c_buf == NULL)
