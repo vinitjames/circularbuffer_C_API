@@ -5,14 +5,15 @@
 #include <stdio.h>
 
 enum C_Buffer_Status {
-					 ERR_BUF_EMPTY,
-					 ERR_BUF_FULL,
-					 ERR_HANDLE_NULL,
-					 SUCC_RESET,
-					 
-					
-					
-}; 
+					  ERR_BUF_EMPTY,
+					  ERR_BUF_FULL,
+					  ERR_HANDLE_NULL,
+					  ERR_DATA_NULL,
+					  SUCC_BUF_RESET,
+					  SUCC_BUF_FREE,
+					  SUCC_BUF_INS,
+					  SUCC_BUF_GET
+					 }; 
 
 typedef enum C_Buffer_Status C_Buffer_Status;
 
