@@ -9,6 +9,7 @@ enum C_Buffer_Status {
 					  ERR_BUF_FULL,
 					  ERR_HANDLE_NULL,
 					  ERR_DATA_NULL,
+					  ERR_DATASIZE_UNEQ,
 					  SUCC_BUF_RESET,
 					  SUCC_BUF_FREE,
 					  SUCC_BUF_INS,
@@ -22,17 +23,17 @@ typedef struct CircularBuffer CircularBuffer;
 typedef CircularBuffer* CircularBufferHandle;
 
 
-CircularBufferHandle CircularBufInit(uint8_t* buffer, size_t size);
+CircularBufferHandle CircularBufInit(void* buffer, size_t size, size_t unitsize);
 
 C_Buffer_Status CircularBufFree(CircularBufferHandle c_buf);
 
 C_Buffer_Status CircularBufReset(CircularBufferHandle c_buf);
 
-C_Buffer_Status CircularBufInsert(CircularBufferHandle c_buf, uint8_t* data);
+C_Buffer_Status CircularBufInsert(CircularBufferHandle c_buf, void* data, size_t datasize);
 
-C_Buffer_Status CircularBufInsert_V2(CircularBufferHandle c_buf, uint8_t* data);
+C_Buffer_Status CircularBufInsert_V2(CircularBufferHandle c_buf, void* data, size_t datasize);
 
-C_Buffer_Status CircularBufGet(CircularBufferHandle c_buf, uint8_t* data);
+C_Buffer_Status CircularBufGet(CircularBufferHandle c_buf, void* data, size_t datasize);
 
 bool CircularBufEmpty(CircularBufferHandle c_buf);
 
