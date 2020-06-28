@@ -45,7 +45,7 @@ C_Buffer_Status CircularBufFree(CircularBufferHandle c_buf){
 	return SUCC_BUF_FREE;
 }
 
-bool CircularBufferFull(CircularBufferHandle c_buf){
+bool CircularBufFull(CircularBufferHandle c_buf){
 	return c_buf->full;
 }
 
